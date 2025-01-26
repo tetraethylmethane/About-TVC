@@ -1,0 +1,105 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body styling */
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .navbar .logo h1 {
+    color: #fff;
+    font-size: 28px;
+  }
+  
+  .navbar nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .navbar nav ul li {
+    margin: 0 15px;
+  }
+  
+  .navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .navbar nav ul li a:hover {
+    color: #FFD700;
+  }
+  
+  /* About TVC Section */
+  #about-tvc {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  #about-tvc h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #about-tvc p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+  }
+
+  /* About E-Submmit Section */
+    #about-esummit {
+        background-color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      
+      #about-esummit h2 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      
+      #about-esummit p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #555;
+      }
+  
+  /* Footer Section */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  
