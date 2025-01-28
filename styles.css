@@ -6,99 +6,209 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Body styling */
 body {
-  background-color: #fff;  /* Primary: White */
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Header and Navigation */
-header {
-  background-color: #fff;  /* Primary: White */
-  padding: 10px 0;
-}
-
-.navbar {
+  background: #fffafa;
+  color: #121212;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+}
+
+p {
+  white-space: normal;
+  word-wrap: break-word;
+  white-space: normal;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/* Card internals */
+.card--closed {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  gap: 20px;
+  background: #eeeeee;
 }
 
-.navbar .logo h1 {
-  color: #FFD700;  /* Secondary: Yellow */
-  font-size: 28px;
+.card--closed .icon,
+.card--open .header .icon {
+  width: 32px;
+  height: 32px;
 }
 
-.navbar nav ul {
+.card--closed .icon {
+  margin-right: 0px;
+  margin-top: 40px;
+}
+
+.card--closed .divisor--closed,
+.card--open .header .divisor {
+  transition: all 300ms;
+  height: 3px;
+  background: rgba(255, 250, 250, 0.2);
+}
+
+.card--closed .divisor--closed {
+  width: 3px;
+  height: 48px;
+}
+
+.card--open .header .divisor {
+  flex: 1;
+}
+
+.card--closed .breathe-animation,
+.card--open .header .breathe-animation {
+  transition: all 300ms;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.card--closed .breathe-animation {
+  margin: 0;
+  display: inline-block;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+}
+
+h2.breathe-animation {
   display: flex;
-  list-style: none;
+  align-items: center;
+  justify-content: center;
+  /* Change the Background color of the entire screen */
+  /* 'vw' is a viewport-width unit, 'vh' is a viewport-height unit. 1vw equals 1% of the width of the viewport, and 1vh equals 1% of the height of the viewport. This allows the font size to scale dynamically with the window size. */
 }
 
-.navbar nav ul li {
-  margin: 0 15px;
+.breathe-animation h2 {
+  font-family: 'TheFont';
+
+  /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
+  /* Adjusts font size based on content width and viewport height */
+  font-size: clamp(5vw, 10vw, 25vh);
+
+  /* Change this to set the text color */
+  color: black;
+
+  /* Center text horizontally */
+  text-align: center; 
+
+  /* The 'animation' property applies the 'letter-breathe' keyframes to the element, making it animate over 3 seconds.'ease-in-out' makes the movement start and end slowly, and 'infinite' makes it repeat forever. */
+  /* Controls the animation (3s is the duration) */
+  animation: letter-breathe 3s ease-in-out infinite;
 }
 
-.navbar nav ul li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s;
+.card--open {
+/*   padding: 24px 40px; */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  z-index: 0;
 }
 
-.navbar nav ul li a:hover {
-  color: #FFD700;  /* Secondary: Yellow */
+.card--open .header {
+  display: flex;
+  align-items: center;
 }
 
-/* About TVC Section */
-#about-tvc {
-  background-color: #fff;  /* Primary: White */
-  padding: 60px 20px;
-  text-align: center;
+.card--open .description {
+  font-size: 20px;
+  letter-spacing: 0.8px;
 }
 
-#about-tvc h2 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 20px;
+.card--open .button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  color: #303030;
+  border: 1px solid currentColor;
+  background: transparent;
+  width: max-content;
 }
 
-#about-tvc p {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
+.card--open .button span {
+  text-transform: uppercase;
+  letter-spacing: 0.64px;
 }
 
-/* Credits */
-#credits {
-  background-color: #fff;  /* Primary: White */
-  padding: 60px 20px;
-  text-align: center;
+.card--open .showcase {
+  width: 100%;
+  height: 384px;
+  object-fit: cover;
+  object-position: center center;
 }
 
-#credits h2 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 20px;
+/* Card container */
+.container {
+  position: relative;
+  height: 552px;
+  width: 140px;
+  display: flex;
+  overflow: hidden;
+  transition: width 300ms;
 }
 
-#credits p {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
+.card--open {
+  width: 600px;
+  padding: 0px;
+  height: 100%;
+  max-width: 673px;
+  position: absolute;
+  overflow: hidden;
+  transition: all 300ms;
+  left: 100%;
 }
 
-/* Footer Section */
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
+.card--closed{
+  width: 140px;
+  opacity: 1;
+  transition: all 300ms;
 }
 
-footer p {
-  font-size: 14px;
+/* Transitions */
+.container:hover {
+  width: 600px;  
+}
+
+.container:hover .card--open {
+  left: 0%;
+}
+
+.container:hover .card--closed{
+  width: 0px;
+  opacity: 0;
+}
+
+@font-face {
+  font-family: 'TheFont';
+  
+  /* Variable fonts like the one linked below allow for fine-tuned control over various font properties dynamically via CSS, such as weight ('wght'), width ('wdth'), etc. This link is where your web browser will download the font from. */
+  /* Insert the link to your custom variable font */
+  src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2")
+    format('woff2'); }
+
+
+
+/* Keyframes define the sequence of styles that an element will go through during an animation. */
+@keyframes letter-breathe {
+ 
+  /* The 'from' and 'to' keyframes establish the initial and final states of the animation, respectively, using 'font-variation-settings'. This CSS property is used with variable fonts to adjust their weight ('wght'), width ('wdth'), etc., during the animation. */
+  from,
+  to {
+    /* Starting weight; adjust the numbers according to your specific font */
+    font-variation-settings: 'wght' 100;
+  }
+
+  /* At the midpoint (50%) of the animation, the font weight changes to 900. */
+  50% {
+    /* Ending weight; adjust the numbers according to your specific font */
+    font-variation-settings: 'wght' 900;
+  }
 }
