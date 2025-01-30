@@ -109,7 +109,8 @@ h2.breathe-animation {
   border: 1px solid currentColor;
   background: transparent;
   width: max-content;
-  word-wrap: break-word;
+  word-wrap: normal;
+  display: flex;
 }
 
 .card--open .button span {
