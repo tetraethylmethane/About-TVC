@@ -60,7 +60,7 @@ h2.breathe-animation {
 
   /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
   /* Adjusts font size based on content width and viewport height */
-  font-size: clamp(1rem, 2vw, 3rem);
+  font-size: clamp(2rem, 4vw, 6rem);
 
   /* Change this to set the text color */
   color: black;
@@ -76,7 +76,7 @@ h2.breathe-animation {
 .card--closed .title {
   transition: all 300ms;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 20px;
   margin-left: 20px;
 }
@@ -94,7 +94,7 @@ h2.breathe-animation {
 }
 
 .card--open .description {
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.8px;
 }
 
