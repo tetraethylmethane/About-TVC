@@ -60,7 +60,7 @@ h2.breathe-animation {
 
   /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
   /* Adjusts font size based on content width and viewport height */
-  font-size: clamp(2rem, 4vw, 6rem);
+  font-size: clamp(0.8rem, 2vw, 4rem);
 
   /* Change this to set the text color */
   color: black;
