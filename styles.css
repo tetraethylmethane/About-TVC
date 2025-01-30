@@ -1,80 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 body {
-  background: #fffafa;
+  background:#ffffff;
   color: #121212;
   padding: 20px;
   display: flex;
   gap: 20px;
+  flex-direction: column;
+  align-items: center;
 }
-
-p {
-  white-space: normal;
-  word-wrap: break-word;
-  white-space: normal;
-  margin: 0px;
-  padding: 0px;
-}
-
 
 /* Card internals */
 .card--closed {
+  display: flex;
+  align-items: center;
+  padding: 56px 40px;
+  height: 130px;
+  background: #fdf0d5;
+  width: 100%;
+  transition: all 300ms;
   z-index: 1;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background: #eeeeee;
-}
-
-.card--closed .icon,
-.card--open .header .icon {
-  width: 32px;
-  height: 32px;
 }
 
 .card--closed .icon {
-  margin-right: 0px;
-  margin-top: 40px;
-}
-
-.card--closed .divisor--closed,
-.card--open .header .divisor {
-  transition: all 300ms;
-  height: 3px;
-  background: rgba(255, 250, 250, 0.2);
-}
-
-.card--closed .divisor--closed {
-  width: 3px;
-  height: 48px;
-}
-
-.card--open .header .divisor {
-  flex: 1;
-}
-
-.card--closed .breathe-animation,
-.card--open .header .breathe-animation {
-  transition: all 300ms;
-  text-transform: uppercase;
-  font-size: 24px;
+  width: 32px;
+  height: 32px;
   margin-right: 20px;
-  margin-left: 20px;
 }
 
-.card--closed .breathe-animation {
-  margin: 0;
-  display: inline-block;
-  white-space: nowrap;
-  writing-mode: vertical-rl;
+.card--closed .divisor--closed ,
+.card--closed .divisor--open {
+  transition: all 300ms;
+  width: 10%;
+  height: 3px;
+}
+
+.card--closed .divisor--open {
+  width: 0%;
 }
 
 h2.breathe-animation {
@@ -90,7 +60,7 @@ h2.breathe-animation {
 
   /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
   /* Adjusts font size based on content width and viewport height */
-  font-size: clamp(5vw, 10vw, 25vh);
+  font-size: clamp(1rem, 2vw, 3rem);
 
   /* Change this to set the text color */
   color: black;
@@ -103,18 +73,24 @@ h2.breathe-animation {
   animation: letter-breathe 3s ease-in-out infinite;
 }
 
+.card--closed .title {
+  transition: all 300ms;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .card--open {
-/*   padding: 24px 40px; */
+  padding: 24px 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  transition: all 300ms;
+  transform: translateY(-100%);
+  opacity: 0;
   position: relative;
   z-index: 0;
-}
-
-.card--open .header {
-  display: flex;
-  align-items: center;
 }
 
 .card--open .description {
@@ -127,7 +103,7 @@ h2.breathe-animation {
   align-items: center;
   gap: 8px;
   padding: 16px 28px;
-  color: #303030;
+  color: #121212;
   border: 1px solid currentColor;
   background: transparent;
   width: max-content;
@@ -147,43 +123,44 @@ h2.breathe-animation {
 
 /* Card container */
 .container {
-  position: relative;
-  height: 552px;
-  width: 140px;
-  display: flex;
-  overflow: hidden;
-  transition: width 300ms;
-}
-
-.card--open {
-  width: 600px;
-  padding: 0px;
-  height: 100%;
+  width: 100%;
   max-width: 673px;
-  position: absolute;
+  height: 130px;
   overflow: hidden;
-  transition: all 300ms;
-  left: 100%;
-}
-
-.card--closed{
-  width: 140px;
-  opacity: 1;
-  transition: all 300ms;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
 }
 
 /* Transitions */
 .container:hover {
-  width: 600px;  
+  height: 672px;
 }
 
 .container:hover .card--open {
-  left: 0%;
+  transform: translateY(0%);
+  opacity: 1;
 }
 
-.container:hover .card--closed{
-  width: 0px;
-  opacity: 0;
+/* Bg change and padding */
+.container:hover .card--closed {
+  background: #fffafa;
+  padding: 0px 40px;
+  height: 36px;
+}
+
+/* Divisor widths */
+.container:hover .card--closed .divisor--open {
+  flex: 1;
+}
+
+.container:hover .card--closed .divisor--closed {
+  width: 0%;
+}
+
+/* Spacing in closed state */
+.container:hover .card--closed .title {
+  margin-left: 0px;
 }
 
 @font-face {
@@ -210,5 +187,78 @@ h2.breathe-animation {
   50% {
     /* Ending weight; adjust the numbers according to your specific font */
     font-variation-settings: 'wght' 900;
+  }
+}
+
+
+footer {
+  font-size: 1.5vmin;
+  font-family: JetBrains Mono, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e4bb68;
+}
+
+.string {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  animation: move 4s infinite;
+}
+
+.greeting {
+  position: relative;
+  top: 8.6vmin;
+  animation: white-out 5s infinite;
+}
+
+.closure::after {
+  content: '';
+  position: absolute;
+  height: 25vmin;
+  width: 100vmin;
+  background: #ffffff;
+  transform: translate(-45vmin, -24.5vmin);
+}
+
+.closure::before {
+  content: '';
+  position: absolute;
+  height: 25vmin;
+  width: 40vmin;
+  background: #ffffff;
+  transform: translate(-40vmin, 5vmin);
+}
+
+.en {
+  color: #fa8231;
+}
+
+.es {
+  color: #a9b0bd;
+}
+
+.de {
+  color: #c678dd;
+}
+
+.it {
+  color: #68e2f0;
+}
+
+@keyframes move {
+  25% {
+    transform: translatey(-3vmin);
+    opacity: 1;
+  }
+  50% {
+    transform: translatey(-6vmin);
+  }
+  75% {
+    transform: translatey(-10vmin);
+  }
+  100% {
+    transform: translatey(-14vmin);
   }
 }
