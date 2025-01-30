@@ -67,6 +67,8 @@ h2.breathe-animation {
 
   /* Center text horizontally */
   text-align: center; 
+  align-items: center;
+
 
   /* The 'animation' property applies the 'letter-breathe' keyframes to the element, making it animate over 3 seconds.'ease-in-out' makes the movement start and end slowly, and 'infinite' makes it repeat forever. */
   /* Controls the animation (3s is the duration) */
