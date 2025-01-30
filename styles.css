@@ -249,11 +249,11 @@ footer {
 
 @keyframes move {
   25% {
-    transform: translatey(-2vmin);
+    transform: translatey(-4vmin);
     opacity: 1;
   }
   50% {
-    transform: translatey(-6vmin);
+    transform: translatey(-8vmin);
   }
   75% {
     transform: translatey(-12vmin);
