@@ -1,265 +1,180 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
-
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
 
+/* Body styling */
 body {
-  background:#ffffff;
-  color: #121212;
-  padding: 20px;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Card internals */
-.card--closed {
-  display: flex;
-  align-items: center;
-  padding: 56px 40px;
-  height: 130px;
-  background: #fdf0d5;
-  width: 100%;
-  transition: all 300ms;
-  z-index: 1;
-  position: relative;
-}
-
-.card--closed .icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 20px;
-}
-
-.card--closed .divisor--closed ,
-.card--closed .divisor--open {
-  transition: all 300ms;
-  width: 10%;
-  height: 3px;
-}
-
-.card--closed .divisor--open {
-  width: 0%;
-}
-
-h2.breathe-animation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Change the Background color of the entire screen */
-  /* 'vw' is a viewport-width unit, 'vh' is a viewport-height unit. 1vw equals 1% of the width of the viewport, and 1vh equals 1% of the height of the viewport. This allows the font size to scale dynamically with the window size. */
-}
-
-.breathe-animation h2 {
-  font-family: 'TheFont';
-
-  /* The 'clamp()' function sets a flexible font size that will never go below a minimum value and never above a maximum value. The middle value is preferred, but it will shrink or grow based on the viewport dimensions. */
-  /* Adjusts font size based on content width and viewport height */
-  font-size: clamp(0.8rem, 2vw, 4rem);
-
-  /* Change this to set the text color */
-  color: black;
-
-  /* Center text horizontally */
-  text-align: center; 
-  align-items: center;
-
-
-  /* The 'animation' property applies the 'letter-breathe' keyframes to the element, making it animate over 3 seconds.'ease-in-out' makes the movement start and end slowly, and 'infinite' makes it repeat forever. */
-  /* Controls the animation (3s is the duration) */
-  animation: letter-breathe 3s ease-in-out infinite;
-}
-
-.card--closed .title {
-  transition: all 300ms;
-  text-transform: uppercase;
-  font-size: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.card--open {
-  padding: 24px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transition: all 300ms;
-  transform: translateY(-100%);
-  opacity: 0;
-  position: relative;
-  z-index: 0;
-}
-
-.card--open .description {
-  font-size: 18px;
-  letter-spacing: 0.8px;
-}
-
-.card--open .button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
-  color: #121212;
-  border: 1px solid currentColor;
-  background: transparent;
-  width: max-content;
-  word-wrap: normal;
-  display: flex;
-}
-
-.card--open .button span {
-  text-transform: uppercase;
-  letter-spacing: 0.64px;
-}
-
-.card--open .showcase {
-  width: 100%;
-  height: 384px;
-  object-fit: cover;
-  object-position: center center;
-}
-
-/* Card container */
-.container {
-  width: 100%;
-  max-width: 673px;
-  height: 130px;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-
-/* Transitions */
-.container:hover {
-  height: 672px;
-}
-
-.container:hover .card--open {
-  transform: translateY(0%);
-  opacity: 1;
-}
-
-/* Bg change and padding */
-.container:hover .card--closed {
-  background: #fffafa;
-  padding: 0px 40px;
-  height: 36px;
-}
-
-/* Divisor widths */
-.container:hover .card--closed .divisor--open {
-  flex: 1;
-}
-
-.container:hover .card--closed .divisor--closed {
-  width: 0%;
-}
-
-/* Spacing in closed state */
-.container:hover .card--closed .title {
-  margin-left: 0px;
-}
-
-@font-face {
-  font-family: 'TheFont';
-  
-  /* Variable fonts like the one linked below allow for fine-tuned control over various font properties dynamically via CSS, such as weight ('wght'), width ('wdth'), etc. This link is where your web browser will download the font from. */
-  /* Insert the link to your custom variable font */
-  src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2")
-    format('woff2'); }
-
-
-
-/* Keyframes define the sequence of styles that an element will go through during an animation. */
-@keyframes letter-breathe {
- 
-  /* The 'from' and 'to' keyframes establish the initial and final states of the animation, respectively, using 'font-variation-settings'. This CSS property is used with variable fonts to adjust their weight ('wght'), width ('wdth'), etc., during the animation. */
-  from,
-  to {
-    /* Starting weight; adjust the numbers according to your specific font */
-    font-variation-settings: 'wght' 100;
-  }
-
-  /* At the midpoint (50%) of the animation, the font weight changes to 900. */
-  50% {
-    /* Ending weight; adjust the numbers according to your specific font */
-    font-variation-settings: 'wght' 900;
-  }
-}
-
-
-footer {
-  font-size: 1.5vmin;
-  font-family: JetBrains Mono, monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #e4bb68;
-}
-
-.string {
-  display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
   text-align: center;
-  animation: move 4s infinite;
+  padding: 60px 20px;
 }
 
-.greeting {
-  position: relative;
-  top: 8.6vmin;
-  animation: white-out 5s infinite;
+/* About TVC Section */
+#about-tvc {
+  padding: 60px 20px;
 }
 
-.closure::after {
-  content: '';
-  position: absolute;
-  height: 25vmin;
-  width: 100vmin;
-  background: #ffffff;
-  transform: translate(-45vmin, -24.5vmin);
+#about-tvc p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #555;
 }
-
-.closure::before {
-  content: '';
-  position: absolute;
-  height: 25vmin;
-  width: 40vmin;
-  background: #ffffff;
-  transform: translate(-40vmin, 5vmin);
-}
-
-.en {
-  color: #fa8231;
-}
-
-.es {
-  color: #a9b0bd;
-}
-
-.de {
-  color: #c678dd;
-}
-
-.it {
-  color: #68e2f0;
-}
-
-@keyframes move {
-  25% {
-    transform: translatey(-4vmin);
-    opacity: 1;
+/* About E-Submmit Section */
+#about-esummit {
+    padding: 60px 20px;
+    text-align: center;
   }
-  50% {
-    transform: translatey(-8vmin);
+  
+  #about-esummit p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
   }
-  75% {
-    transform: translatey(-12vmin);
+
+  /*Title*/
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
   }
-}
+  
+  
+  .key {
+    font-size: 10vw;
+    display: inline-block;
+    letter-spacing: -1vw;
+    transition: transform 0.2s;
+  }
+  
+  
+  
+  @keyframes pressDown1 {
+    30%,
+    40%,
+    100% {
+      transform: translateY(0);
+    }
+    35% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown2 {
+    70%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown3 {
+    30%,
+    40%,
+    100% {
+      transform: translateY(0);
+    }
+    35% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown4 {
+    40%,
+    50%,
+    100% {
+      transform: translateY(0);
+    }
+    45% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown5 {
+    20%,
+    30%,
+    100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown6 {
+    60%,
+    70%,
+    100% {
+      transform: translateY(0);
+    }
+    65% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown7 {
+    10%,
+    20%,
+    100% {
+      transform: translateY(0);
+    }
+    15% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown8 {
+    35%,
+    45%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(10px);
+    }
+  }
+  
+  
+  
+  .key:nth-child(1) {
+    animation: pressDown1 2s infinite;
+  }
+  
+  .key:nth-child(2) {
+    animation: pressDown2 3s infinite;
+  }
+  
+  .key:nth-child(3) {
+    animation: pressDown3 4s infinite;
+  }
+  
+  .key:nth-child(4) {
+    animation: pressDown4 2.5s infinite;
+  }
+  
+  .key:nth-child(5) {
+    animation: pressDown5 2.5s infinite;
+  }
+  
+  .key:nth-child(6) {
+    animation: pressDown6 3.5s infinite;
+  }
+  
+  .key:nth-child(7) {
+    animation: pressDown7 2.2s infinite;
+  }
+  
+  .key:nth-child(8) {
+    animation: pressDown8 3.2s infinite;
+  }
